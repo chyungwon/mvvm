@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">사진조회</string>
+    <string name="btn_prev">&lt;-이전</string>
+    <string name="btn_next">다음-&gt;</string>
+    <string name="screen_list">사진목록</string>
+    <string name="screen_detail">사진상세</string>
+</resources>
