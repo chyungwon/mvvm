@@ -15,6 +15,8 @@ class PhotoViewModel(application: Application) : AndroidViewModel(application) {
 
     val photoItem = photoRepository.item
 
+    val requestResult = photoRepository.requestResult
+
     private val _currentId = MutableLiveData<String>()
     val currentId: LiveData<String>
         get() = _currentId

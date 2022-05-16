@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.photos.R
 import com.example.photos.databinding.FragmentPhotoListBinding
+import com.example.photos.util.applyRequestResult
 import com.example.photos.viewmodels.PhotoViewModel
 import com.example.photos.viewmodels.ViewModelFactory
 
@@ -64,6 +65,8 @@ class PhotoListFragment  : Fragment() {
                 layoutManager = LinearLayoutManager(context)
                 adapter = photoPagedListAdapter
             }
+
+            applyRequestResult(context, photoViewModel.requestResult, progressBar)
         }
 
         return binding!!.root

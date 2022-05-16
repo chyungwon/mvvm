@@ -28,9 +28,15 @@ import com.example.photos.domain.PhotoItem
 import com.example.photos.ui.PhotoListAdapter
 import com.example.photos.ui.PhotoPagedListAdapter
 
+
 @BindingAdapter("photoWidth", "photoHeight")
 fun showSize(textView: TextView, photoWidth: Int, photoHeight: Int) {
     textView.text = "$photoWidth X $photoHeight"
+}
+
+@BindingAdapter("showProgress")
+fun hideIfLoaded(view: View, showProgress: Boolean?) {
+    view.visibility = if (showProgress != true) View.GONE else View.VISIBLE
 }
 
 @BindingAdapter("list")

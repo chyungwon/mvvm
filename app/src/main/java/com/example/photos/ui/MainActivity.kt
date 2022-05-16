@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,6 +12,9 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.photos.R
 import com.example.photos.databinding.ActivityMainBinding
+import com.example.photos.util.applyRequestResult
+import com.example.photos.viewmodels.PhotoViewModel
+import com.example.photos.viewmodels.ViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 

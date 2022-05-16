@@ -17,6 +17,7 @@ import com.example.photos.R
 import com.example.photos.databinding.FragmentPhotoDetailBinding
 import com.example.photos.databinding.FragmentPhotoListBinding
 import com.example.photos.domain.PhotoItem
+import com.example.photos.util.applyRequestResult
 import com.example.photos.viewmodels.PhotoViewModel
 import com.example.photos.viewmodels.ViewModelFactory
 
@@ -65,6 +66,8 @@ class PhotoDetailFragment  : Fragment() {
                     }
                 }
             }
+
+            applyRequestResult(context, photoViewModel.requestResult, progressBar)
         }
 
         return binding!!.root
