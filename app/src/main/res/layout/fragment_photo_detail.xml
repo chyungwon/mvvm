@@ -31,6 +31,16 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnHeart"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_heart"
+            like_yn="@{viewModel.currentItem.like_yn}"
+            android:onClick="@{() -> photoCallback.onClick(btnHeart)}"/>
+
         <TextView
             android:id="@+id/author"
             android:layout_width="0dp"
@@ -64,6 +74,7 @@
             tools:text="this is photo size" />
 
         <com.google.android.material.button.MaterialButton
+            style="@style/Photo.Widget.MaterialComponents.Button.OutlinedButton"
             android:id="@+id/btnPrev"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,9 +84,10 @@
             android:onClick="@{() -> photoCallback.onClick(btnPrev)}"
             android:visibility="invisible"
             tools:visibility="visible"
-            app:photoId = "@{viewModel.prevId}"/>
+            app:photoId = "@{viewModel.prevItem}"/>
 
         <com.google.android.material.button.MaterialButton
+            style="@style/Photo.Widget.MaterialComponents.Button.OutlinedButton"
             android:id="@+id/btnNext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -85,9 +97,10 @@
             android:onClick="@{() -> photoCallback.onClick(btnNext)}"
             android:visibility="invisible"
             tools:visibility="visible"
-            app:photoId = "@{viewModel.nextId}"/>
+            app:photoId = "@{viewModel.nextItem}"/>
 
         <com.google.android.material.progressindicator.CircularProgressIndicator
+            style="@style/Photo.Widget.App.CircularProgressIndicator"
             android:id="@+id/progress_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

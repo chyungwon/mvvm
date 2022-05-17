@@ -119,6 +119,24 @@ class PhotoRepository(private val database: PhotoDatabase) {
         _item.postValue(null)
     }
 
+    suspend fun changeLikeYn(id: String, likeYn: String): Int {
+        var updated = 0
+        withContext(Dispatchers.IO) {
+            _requestResult.postValue(_requestResult.value!!.apply {
+                showProcess = true
+            })
+
+            updated = database.photoDao.update(likeYn, id)
+            Log.d("repository", "updated : $updated")
+
+            _requestResult.postValue(_requestResult.value!!.apply {
+                showProcess = false
+            })
+        }
+
+        return updated
+    }
+
     companion object {
         val PAGE_SIZE = 5
     }

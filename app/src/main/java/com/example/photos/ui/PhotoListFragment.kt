@@ -1,19 +1,14 @@
 package com.example.photos.ui
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.photos.R
 import com.example.photos.databinding.FragmentPhotoListBinding
 import com.example.photos.util.applyRequestResult
@@ -24,7 +19,6 @@ class PhotoListFragment  : Fragment() {
 
     private var binding: FragmentPhotoListBinding? = null
 
-    private var photoListAdapter: PhotoListAdapter? = null
     private var photoPagedListAdapter: PhotoPagedListAdapter? = null
 
     private val photoViewModel: PhotoViewModel by lazy {
@@ -55,7 +49,7 @@ class PhotoListFragment  : Fragment() {
             photoPagedListAdapter = PhotoPagedListAdapter(PhotoListClickListener {
                 photoViewModel.initItem()
 
-                photoViewModel.selectCurrentId(it.id)
+                photoViewModel.selectCurrentItem(it)
 
                 view?.findNavController()?.navigate(R.id.action_photoList_to_photoDetail)
 

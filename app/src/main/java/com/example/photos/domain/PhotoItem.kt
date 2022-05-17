@@ -5,11 +5,13 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class PhotoItem(val id: String,
+                     var like_yn: String?,
                      val author: String,
                      val width: Int,
                      val height: Int,
                      val url: String,
-                     val download_url: String)
+                     val download_url: String) {
+}
 
 fun PhotoItem.getSize(): String {
     return "$width X $height"
@@ -19,6 +21,7 @@ fun PhotoItem.getSize(): String {
 fun PhotoItem.asDatabaseModel(): DatabasePhoto {
     return DatabasePhoto(
         id = id,
+        like_yn = like_yn ?: "",
         author = author,
         width = width,
         height = height,

@@ -8,6 +8,7 @@ import com.example.photos.domain.PhotoItem
 data class DatabasePhoto constructor(
     @PrimaryKey
     val id: String,
+    val like_yn: String,
     val author: String,
     val width: Int,
     val height: Int,
@@ -17,6 +18,7 @@ data class DatabasePhoto constructor(
 fun DatabasePhoto.asDomainModel(): PhotoItem {
     return PhotoItem(
         id = id,
+        like_yn = like_yn,
         author = author,
         width = width,
         height = height,

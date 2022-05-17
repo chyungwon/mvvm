@@ -19,19 +19,24 @@ package com.example.photos.util
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.photos.domain.PhotoItem
-import com.example.photos.ui.PhotoListAdapter
 import com.example.photos.ui.PhotoPagedListAdapter
 
 
 @BindingAdapter("photoWidth", "photoHeight")
 fun showSize(textView: TextView, photoWidth: Int, photoHeight: Int) {
     textView.text = "$photoWidth X $photoHeight"
+}
+
+@BindingAdapter("like_yn")
+fun showLikeYn(imageView: AppCompatImageView, like_yn: String) {
+    imageView.isSelected = like_yn == "Y"
 }
 
 @BindingAdapter("showProgress")
@@ -55,6 +60,6 @@ fun setImageUrl(imageView: ImageView, imageUrl: String?) {
 }
 
 @BindingAdapter("photoId")
-fun hideIfNoneId(view: View, photoId: String?) {
-    view.visibility = if (photoId != null) View.VISIBLE else View.INVISIBLE
+fun hideIfNoneId(view: View, photoItem: PhotoItem?) {
+    view.visibility = if (photoItem != null) View.VISIBLE else View.INVISIBLE
 }

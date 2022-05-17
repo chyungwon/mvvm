@@ -1,6 +1,5 @@
 package com.example.photos.database
 
-import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
 import androidx.room.Dao
 import androidx.room.Insert
@@ -20,4 +19,7 @@ interface PhotoDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertAll( photos: List<DatabasePhoto>) : List<Long>
+
+    @Query("UPDATE databasephoto SET like_yn=:likeYn WHERE id = :id")
+    fun update(likeYn: String, id: String): Int
 }

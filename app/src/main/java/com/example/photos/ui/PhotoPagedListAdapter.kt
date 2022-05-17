@@ -2,9 +2,12 @@ package com.example.photos.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
+import com.example.photos.R
 import com.example.photos.databinding.PhotoListItemBinding
 import com.example.photos.domain.PhotoItem
 
@@ -37,4 +40,15 @@ class PhotoPagedListAdapter(private val callback: PhotoListClickListener) : Page
                                             newConcert: PhotoItem) = oldConcert == newConcert
         }
     }
+}
+
+class PhotoListViewHolder(val viewDataBinding: PhotoListItemBinding) : RecyclerView.ViewHolder(viewDataBinding.root) {
+    companion object {
+        @LayoutRes
+        val LAYOUT = R.layout.photo_list_item
+    }
+}
+
+class PhotoListClickListener(val block: (PhotoItem) -> Unit) {
+    fun onClick(photoItem: PhotoItem) = block(photoItem)
 }

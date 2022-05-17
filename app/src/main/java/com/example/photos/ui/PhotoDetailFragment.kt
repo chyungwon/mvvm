@@ -1,22 +1,14 @@
 package com.example.photos.ui
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.photos.R
 import com.example.photos.databinding.FragmentPhotoDetailBinding
-import com.example.photos.databinding.FragmentPhotoListBinding
-import com.example.photos.domain.PhotoItem
 import com.example.photos.util.applyRequestResult
 import com.example.photos.viewmodels.PhotoViewModel
 import com.example.photos.viewmodels.ViewModelFactory
@@ -37,9 +29,7 @@ class PhotoDetailFragment  : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         photoViewModel.run {
-            currentId.observe(viewLifecycleOwner) {
-                readItem(it)
-            }
+            readItem(currentItem.value!!.id)
         }
     }
 
@@ -59,10 +49,13 @@ class PhotoDetailFragment  : Fragment() {
             photoCallback = PhotoDetailClickListener {
                 when(it.id) {
                     R.id.btnPrev -> {
-                        photoViewModel.selectCurrentId(photoViewModel.prevId.value!!)
+                        photoViewModel.selectCurrentItem(photoViewModel.prevItem.value!!)
                     }
                     R.id.btnNext -> {
-                        photoViewModel.selectCurrentId(photoViewModel.nextId.value!!)
+                        photoViewModel.selectCurrentItem(photoViewModel.nextItem.value!!)
+                    }
+                    R.id.btnHeart -> {
+                        photoViewModel.changeLikeYn()
                     }
                 }
             }
