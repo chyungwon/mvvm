@@ -11,6 +11,7 @@
 
 ## Architecture
 `MVVM(Model View View Model)` 디자인 패턴을 적용
+
 `Repository Pattern`을 활용하여 데이터 관리 구현
 
 ### UI
@@ -20,16 +21,17 @@
 
 ### Model
 `JSON` 데이터를 파싱하여 Kotlin data class 구현
+
 추가로, room database에 저장하기위해 entity class 구현
 
 ### ViewModel
 `PhotoViewModel.kt`
-이미지 목록, 상세정보를 조회하고 로컬디비에 저장
+- 이미지 목록, 상세정보를 조회하고 로컬디비에 저장
 
 ### Network
 네트웍 계층은 Repository와 ApiService로 구성
-`PhotoService` - retrofit API를 호출하는 suspend 함수
-`PhotoRepository` - 네트웍조회와 로컬저장 등을 구현
+1. `PhotoService` - retrofit API를 호출하는 suspend 함수
+2. `PhotoRepository` - 네트웍조회와 로컬저장 등을 구현
 
 ## Tech Stack
 1. [Android appcompat](https://developer.android.com/jetpack/androidx/releases/appcompat), [KTX](https://developer.android.com/kotlin/ktx), [Constraint layout](https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout), [Material Support](https://material.io/develop/android/docs/getting-started).
