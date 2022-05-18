@@ -42,5 +42,5 @@
 6.  [Livedata](https://developer.android.com/topic/libraries/architecture/livedata)
 7. [Room](https://developer.android.com/jetpack/androidx/releases/room) for local database.
 8. [Glide](https://github.com/bumptech/glide) for image loading.
-9. [Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)
+9. [Paging 2](https://developer.android.com/topic/libraries/architecture/paging)
 10. [Navigation](https://developer.android.com/guide/navigation)
